@@ -21,5 +21,9 @@ Ist installiert, wenn Versionsnummer angezeigt. Es muss mindestens Node 14.0.0 u
 
 Installation hier: https://nodejs.org/de/download/
 
+## Postgres
+https://www.postgresql.org/download/
+ 
+Grafische Benutzeroberfläche hier: https://www.pgadmin.org/download/
 
-
+Datenbank-Skelett von diesem Projekt befindet sich in GitHub im Wurzelverzeichnis (Klassentest).
