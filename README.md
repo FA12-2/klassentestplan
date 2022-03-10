@@ -19,12 +19,12 @@ Wir entwickeln eine Web-Applikation mit der man Klassen organisiert in Testing-S
 Bevor man anfangen kann für dieses Projekt zu entwickeln, müssen bestimmte Programme und Bibliotheken gedownloadet werden, die für den Programmierprozess notwending sind.
 
 ### Inhaltsangabe:
-**[Node.js/npm](###1.-Nodejs/npm)**<br>
-**[Git](###2.-Git)**<br>
-**[PostgreSQL](###3.-PostgreSQL)**<br>
-**[Visual Studio Code](###4.-Visual-Studio-Code)**<br>
-**[Repository klonen](###5.-Repository-klonen)**<br>
-**[npm-Module installieren](###6.-npm-Module-installieren)**<br>
+**[Node.js/npm](#1-nodejsnpm)**<br>
+**[Git](#2-git)**<br>
+**[PostgreSQL](#3-postgresql)**<br>
+**[Visual Studio Code](#4-visual-studio-code)**<br>
+**[Repository klonen](#5-repository-klonen)**<br>
+**[npm-Module installieren](#6-npm-module-installieren)**<br>
 
 
 ### 1. Node.js/npm
