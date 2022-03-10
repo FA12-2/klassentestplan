@@ -1,0 +1,1 @@
+export type WeekIdentifiers = "A" | "B" | "C" | ""
