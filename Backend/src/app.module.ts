@@ -1,13 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { SchoolClassController } from './schoolclass.controller';
-import { SchoolClassService } from './schoolclass.service';
+import { SchoolClassModule } from './schoolclass.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot()
+    TypeOrmModule.forRoot(), // Automatically imports an 'ormconfig.json' in the root directoy
+    SchoolClassModule
   ],
-  controllers: [SchoolClassController],
-  providers: [SchoolClassService],
 })
 export class AppModule { }
