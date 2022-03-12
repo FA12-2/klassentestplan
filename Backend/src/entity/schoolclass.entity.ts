@@ -16,7 +16,7 @@ export class SchoolClassEntity {
     gradeLevel: string;
 
     @Column()
-    gradeSubLevel: boolean;
+    gradeSubLevel: string;
 
     @Column()
     weekIdentifier: WeekIdentifiers;

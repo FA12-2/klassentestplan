@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm/repository/Repository';
+import SchoolClass from './dto/schoolclass.dto';
 import { SchoolClassEntity } from './entity/schoolclass.entity';
 
 @Injectable()
@@ -21,5 +22,12 @@ export class SchoolClassService {
         } else {
             throw new HttpException("School class not found.", HttpStatus.NOT_FOUND)
         }
+    }
+
+    addSchoolClass(schoolClass : SchoolClass) : Promise<SchoolClassEntity> {
+        let schoolClassEntity : SchoolClassEntity = new SchoolClassEntity;
+        schoolClassEntity = {...schoolClassEntity, ...schoolClass};
+        console.log(schoolClassEntity);
+        return this.schoolClassRepository.save(schoolClassEntity);
     }
 }
