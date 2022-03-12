@@ -25,6 +25,7 @@ Bevor man anfangen kann für dieses Projekt zu entwickeln, müssen bestimmte Pro
 **[Visual Studio Code](#4-visual-studio-code)**<br>
 **[Repository klonen](#5-repository-klonen)**<br>
 **[npm-Module installieren](#6-npm-module-installieren)**<br>
+**[Datenbank und Server starten](#7-datenbank-und-server-starten)**<br>
 
 
 ### 1. Node.js/npm
@@ -81,15 +82,11 @@ Globale E-Mail festlegen:<br/>
 >Kommandozeile öffnen kann man mitunter, indem man 'cmd' in die Windows-Suche eingibt und mit Enter bestätigt (Windows)
 
 ### 3. PostgreSQL
-Die Daten werden in einer Datenbank hinterlegt. Wir nutzen PostgreSQL.
+Die Daten werden in einer Datenbank hinterlegt. Wir nutzen PostgreSQL. Eine grafische Oberfläche bietet pgadmin4.
 
-[Download](https://www.postgresql.org/download/)
+[Download](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
-PostgreSQL bietet eine grafische Oberfläche zum manuellen Handhaben der Daten.
- 
-[Download - pgAdmin](https://www.pgadmin.org/download/)
-
-Datenbank-Skelett von diesem Projekt befindet sich in GitHub im Wurzelverzeichnis (Klassentest).
+Folgt den Installationsanweisungen und seid sicher, dass auch ein Haken bei "pgadmin4" gesetzt ist im Installationsverlauf. Port kann standardmäßig bleiben und muss nicht geändert werden.
 
 ### 4. Visual Studio Code
 VSC ist eine Integrated Developer Enviroment (IDE). Sie bietet einen Text-Editor mit Code-Highlighting, verschiedene Plugins und viele Möglichkeiten alles an seine eigene Präferenzen einzustellen.
@@ -117,6 +114,34 @@ Dort dann <code>cd frontend</code> eingeben, um mit dem Terminal in den Ordner f
 
 Wenn das getan ist, dann navigieren wir zurück in den Root-Ordner, indem wir <code>cd..</code> im Terminal eingeben.
 
-Zurück im Root-Ordner, navigieren wir nun in den 'backend'-Ordner, indem wir <code>cd backend</code> eingeben. Wenn das getan ist, dann geben wir <code>npm install</code> ein, um alle Module zu installieren, welche in dortigen package.json hinterlegt sind.
+Zurück im Root-Ordner, navigieren wir nun in den 'backend'-Ordner, indem wir <code>cd backend</code> eingeben. Wenn das getan ist, dann geben wir <code>npm install</code> ein, um alle Module zu installieren, welche im dortigen package.json hinterlegt sind.
 
+### 7. Datenbank und Server starten
 
+#### Für Windows
+
+##### Postgres starten:
+Als postgreSQL installiert worden ist, hat es einen Service in Windows angelegt. Um diesen Service zu starten müssen wir <code>Win</code>+<code>R</code> drücken und <code>services.msc</code> eingeben, um die Windows-Dienste zu öffnen.
+
+Wir suchen nach <i>"postgresql-x64-{version}"</i>. Diesen Dienst klicken wir mit Rechtsklick an und wählen "Start" aus. Wenn "Start" ausgegraut ist, dann ist der Dienst schon gestartet und wir können das Fenster wieder schließen.
+
+>Um die Datenbank zu beenden, kann man über den gleichen Weg den Dienst wieder mit "Stop" beenden.
+
+##### pgadmin4 starten (optional):
+Optional, wer möchte, kann pgadmin4 öffnen, um eine bessere Übersicht zu haben.
+Öffnet dafür <i>pgadmin4.exe</i> unter: <code>{installationsordner}\PostgreSQL\14\pgAdmin 4\bin)</code>
+
+##### ormconfig.json erstellen
+
+Nun müssen wir in unserem Projekt <code>./backend/ormconfig.template.json</code> duplizieren und zu <code>ormconfig.json</code> unbenennen.
+
+In dieser <code>ormconfig.json</code>-Datei müssen wir nun nur bei "password" das Passwort eingeben, welches man in der Installation gesetzt hat. Diese Datei sollte unter keinen Umständen committed werden, deswegen ist sie in der <code>.gitignore</code>-Datei eingetragen.
+
+Alle anderen Werte wie "database", "username", "host", "port" u.s.w können bestehen bleiben, wenn man der Standardinstallation von postgres gefolgt ist.
+
+>Für das Entwickeln wird einfachheitshalber die Standard-Datenbank, welche "postgres" genannt ist, benutzt. Wer das ändern möchte, muss eine weitere/neue Datenbank über zum Beispiel pgadmin4 oder die Kommandozeile erstellen.
+
+#### Node-Server starten
+Nun kann man mit <code>npm run start</code> im Termial von VSC den Node-Server starten, welcher sich dann automatisch mit der Datenbank verbindet.
+
+Um zu testen, ob es funktioniert kann man in seinem Browser <code>localhost:3000/schoolclass</code> eingeben, woraufhin eine Seite mit Einträgen oder <code>[]</code> zurückgegeben wird.
