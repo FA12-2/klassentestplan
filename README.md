@@ -26,6 +26,8 @@ Bevor man anfangen kann für dieses Projekt zu entwickeln, müssen bestimmte Pro
 **[Repository klonen](#5-repository-klonen)**<br>
 **[npm-Module installieren](#6-npm-module-installieren)**<br>
 **[Datenbank und Server starten](#7-datenbank-und-server-starten)**<br>
+**[React-Webserver starten](#8-react-webserver-starten)**<br>
+**[That's it](#9-thats-it)**<br>
 
 
 ### 1. Node.js/npm
@@ -141,7 +143,16 @@ Alle anderen Werte wie "database", "username", "host", "port" u.s.w können best
 
 >Für das Entwickeln wird einfachheitshalber die Standard-Datenbank, welche "postgres" genannt ist, benutzt. Wer das ändern möchte, muss eine weitere/neue Datenbank über zum Beispiel pgadmin4 oder die Kommandozeile erstellen.
 
-#### Node-Server starten
-Nun kann man mit <code>npm run start</code> im Termial von VSC den Node-Server starten, welcher sich dann automatisch mit der Datenbank verbindet.
+#### Nest-Server starten
+Nun navigiert man mit dem VSC-Terminal nach <code>cd backend</code> und kann dort <code>npm run start</code> eingeben, um den Nest-Server zu starten, welcher sich dann mit der Datenbank verbindet. (Wenn der Service gestartet worden ist)
 
-Um zu testen, ob es funktioniert kann man in seinem Browser <code>localhost:3000/schoolclass</code> eingeben, woraufhin eine Seite mit Einträgen oder <code>[]</code> zurückgegeben wird.
+Um zu testen, ob es funktioniert kann man in seiner Browser-Adresszeile <code>localhost:3000/schoolclass</code> eingeben, woraufhin eine Seite mit Einträgen oder <code>[]</code> zurückgegeben wird.
+
+### 8. React-Webserver starten
+Nun navigiert man zurück in den Root-Ordner (<code>cd..</code>) und geht dann in den frontend-Ordner mit <code>cd frontend</code>. Dort können wir mit <code>npm run start</code> den React-Webserver starten.
+
+Um zu testen, ob es funktioniert, kann man <code>localhost:3001</code> in der Browser-Adresszeile eingeben. Wenn sich eine Webseite öffnet, dann hat es funktioniert.
+>Standardmäßig führt React das Öffnen des Browers automatisch aus.
+
+### 9. That's it
+Das waren alle Schritte, um die Entwicklungsumgebung zu starten. Bei Fragen oder Problemen einfach melden.
